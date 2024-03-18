@@ -1,11 +1,11 @@
 pipeline {
   agent any
   stages {
-    stage('print text') {
+    stage('Run Python script') {
       steps {
-        sh """
-          echo 'Hello!'
-        """
+        script {
+          sh 'python app.py &'
+      }
       }
     }
     stage('archive file') {
