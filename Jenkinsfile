@@ -1,17 +1,19 @@
+groovy
 pipeline {
     agent any
 
     stages {
-        stage('Build and Archive') {
+        stage('Run Code') {
             steps {
-                // Создаем каталог для артефактов, если он еще не существует
-                sh 'mkdir -p build'
-                
-                // Копируем файл app.py в каталог build
-                sh 'cp app.py build/'
+                // Выполнить ваш код или скрипт
+                sh 'python app.py'
 
-                // Заархивируем файл app.py
-                archiveArtifacts artifacts: 'build/app.py', fingerprint: true
+                // Переместить или скопировать результаты выполнения в каталог 'results'
+                sh 'mkdir -p results'
+                sh 'mv result_file.txt results/'
+
+                // Архивировать каталог 'results'
+                archiveArtifacts artifacts: 'results/*', fingerprint: true
             }
         }
     }
