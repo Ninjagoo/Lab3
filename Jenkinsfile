@@ -1,17 +1,14 @@
 pipeline {
-  agent any
-  stages {
-    stage('Run Python script') {
-      steps {
-        script {
-          sh 'python app.py &'
-      }
-      }
+    agent any
+
+    stages {
+        stage('Build and Archive') {
+            steps {
+                // Копируем файл app.py в каталог с артефактами
+                sh 'cp app.py ${WORKSPACE}/app.py'
+                // Заархивируем каталог с артефактами
+                archiveArtifacts artifacts: 'app.py', fingerprint: true
+            }
+        }
     }
-    stage('archive file') {
-      steps {
-        archiveArtifacts artifacts: 'Jenkinsfile', fingerprint: true
-      }
-    }
-  }
 }
