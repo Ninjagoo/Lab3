@@ -4,10 +4,14 @@ pipeline {
     stages {
         stage('Build and Archive') {
             steps {
-                // Копируем файл app.py в каталог с артефактами
-                sh 'cp app.py ${WORKSPACE}/app.py'
-                // Заархивируем каталог с артефактами
-                archiveArtifacts artifacts: 'app.py', fingerprint: true
+                // Создаем каталог для артефактов, если он еще не существует
+                sh 'mkdir -p build'
+                
+                // Копируем файл app.py в каталог build
+                sh 'cp app.py build/'
+
+                // Заархивируем файл app.py
+                archiveArtifacts artifacts: 'build/app.py', fingerprint: true
             }
         }
     }
