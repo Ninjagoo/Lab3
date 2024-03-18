@@ -5,7 +5,7 @@ pipeline {
         stage('Run Code') {
             steps {
                 // Выполнить ваш код или скрипт
-                sh 'python https://github.com/Ninjagoo/Lab3/blob/main/app.py'
+                sh 'https://github.com/Ninjagoo/Lab3/blob/main/app.py'
 
                 // Переместить или скопировать результаты выполнения в каталог 'results'
                 sh 'mkdir -p results'
