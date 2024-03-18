@@ -2,17 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Run Code') {
+        stage('Build and Archive') {
             steps {
-                // Выполнить ваш код или скрипт
-                sh 'https://github.com/Ninjagoo/Lab3/blob/main/app.py'
+                // Создаем каталог для артефактов, если он еще не существует
+                sh 'mkdir -p build'
+                
+                // Копируем файл app.py в каталог build
+                sh 'cp app.py build/'
 
-                // Переместить или скопировать результаты выполнения в каталог 'results'
-                sh 'mkdir -p results'
-                sh 'mv result_file.txt results/'
-
-                // Архивировать каталог 'results'
-                archiveArtifacts artifacts: 'results/*', fingerprint: true
+                // Заархивируем файл app.py
+                archiveArtifacts artifacts: 'build/app.py', fingerprint: true
             }
         }
     }
