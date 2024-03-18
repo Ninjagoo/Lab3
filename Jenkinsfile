@@ -7,11 +7,11 @@ pipeline {
           echo 'Hello!'
         """
       }
+    }
     stage('archive file') {
       steps {
         archiveArtifacts artifacts: '**/dist/*', fingerprint: true
       }
     }
   }
-  
 }
