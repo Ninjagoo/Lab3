@@ -10,7 +10,7 @@ pipeline {
     }
     stage('archive file') {
       steps {
-        archiveArtifacts artifacts: '**/dist/*', fingerprint: true
+        archiveArtifacts artifacts: 'Jenkinsfile.zip', fingerprint: true
       }
     }
   }
