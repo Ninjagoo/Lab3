@@ -9,7 +9,7 @@ pipeline {
       }
       steps {
                 // Архивируем файлы для дальнейшего использования
-      archiveArtifacts artifacts: '**/dist/*', fingerprint: true
+        archiveArtifacts artifacts: '**/dist/*', fingerprint: true
       }
     }
   }
