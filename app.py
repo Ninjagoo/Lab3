@@ -1,9 +1,14 @@
-from flask import Flask
-app = Flask(__name__)
+public class Task_9 {
+    /*Напишите программу, которая будет проверять попало ли случайно
+выбранное из отрезка [5;155] целое число в интервал (25;100) и выводить
+результат на экран.*/
+    public static void main(String[] args) {
+        int rand = (int)(Math.random()*(150+1) + 5);
 
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80)
+        if (rand > 25 && rand < 100) {
+            System.out.println("Right number! " + rand);
+        } else {
+            System.out.println("Wrong number " + rand + " is not in (25;100)");
+        }
+    }
+}
