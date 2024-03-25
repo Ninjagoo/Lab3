@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('Execute file') {
             steps {
-                // Создаем каталог для артефактов, если он еще не существует
-                sh 'app.py'
+            
+                sh 'https://github.com/Ninjagoo/Lab3/blob/main/app.py'
             }
         }
         stage('Archive') {
