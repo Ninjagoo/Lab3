@@ -8,7 +8,7 @@ pipeline {
                 sh './app.py'
             }
         }
-        stage {
+        stage('Archive') {
             steps {
                 archiveArtifacts artifacts: '**/*', excludes: ''
             }
