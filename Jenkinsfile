@@ -5,7 +5,7 @@ pipeline {
         stage('Execute file') {
             steps {
                 // Создаем каталог для артефактов, если он еще не существует
-                sh './app.py'
+                sh 'app.py'
             }
         }
         stage('Archive') {
