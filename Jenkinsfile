@@ -13,5 +13,4 @@ pipeline {
                 archiveArtifacts artifacts: '**/*', excludes: ''
             }
         }
-    }
 }
